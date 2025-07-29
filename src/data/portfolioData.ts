@@ -264,7 +264,7 @@ export const testimonials: Testimonial[] = [
 export const personalInfo = {
   name: "Luke Lumakin",
   role: "Associate Data Analyst",
-  slogan: "For the bright minds of PH tech, let there be essence in every code and purpose in every action. Innovate, lest, reproducible brilliance.",
+  slogan: "Purpose in every line. Substance in every thought. Innovate, lest, reproducible brilliance.",
   languages: ["Filipino", "English"],
   status: "Blockchain Intern",
   school: "Pamantasan ng Lungsod ng Maynila (PLM)",
