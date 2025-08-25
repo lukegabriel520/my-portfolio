@@ -5,7 +5,12 @@ import {
   Linkedin,
   Mail,
   Menu,
-  X
+  X,
+  BarChart3,
+  Cpu,
+  Code2,
+  Link2,
+  Cloud
 } from 'lucide-react';
 import AnimatedSection from './components/AnimatedSection';
 import ProjectCard from './components/ProjectCard';
@@ -27,7 +32,14 @@ function App() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const navItems = [
+  interface NavItem {
+    id: string;
+    label: string;
+    href?: string;
+    isExternal?: boolean;
+  }
+
+  const navItems: NavItem[] = [
     { id: 'home', label: 'Home' },
     { id: 'projects', label: 'Projects' },
     { id: 'accolades', label: 'Accolades' },
@@ -57,8 +69,10 @@ function App() {
 
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
-    element?.scrollIntoView({ behavior: 'smooth' });
-    setIsMenuOpen(false);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+      setIsMenuOpen(false);
+    }
   };
 
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -148,36 +162,39 @@ function App() {
       <nav 
         className={`fixed top-0 w-full z-50 transition-all duration-300 ${
           scrolled 
-            ? 'bg-white/80 backdrop-blur-lg shadow-lg border-b border-white/30' 
-            : 'bg-white/90 backdrop-blur-sm border-b border-gray-200/50'
+            ? 'bg-white/10 backdrop-blur-md shadow-lg border-b border-white/10' 
+            : 'bg-white/5 backdrop-blur-sm border-b border-white/5'
         }`}
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-20">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="flex justify-between items-center h-16">
             <div className="flex items-center space-x-4">
-              <div className="w-12 h-12 rounded-xl flex items-center justify-center bg-white/90 backdrop-blur-sm border-2 border-gray-200/80 p-1.5 shadow-sm">
+              <div className="w-12 h-12 rounded-xl flex items-center justify-center bg-white/20 backdrop-blur-sm border border-white/20 p-2">
                 <img 
                   src="/LL_Logo.png" 
                   alt="Luke Lumakin Logo" 
                   className="h-full w-auto object-contain"
                   onError={(e) => {
                     const target = e.target as HTMLImageElement;
-                    target.src = 'https://via.placeholder.com/40?text=LL';
+                    target.src = 'https://via.placeholder.com/48?text=LL';
                   }}
                 />
               </div>
+              <span className="text-xl font-bold text-gray-900 font-sans">
+                {personalInfo.name}
+              </span>
             </div>
 
-            <div className="hidden md:flex space-x-8">
+            <div className="hidden md:flex items-center space-x-1">
               {navItems.map((item) => (
                 <button
                   key={item.id}
                   onClick={() => scrollToSection(item.id)}
-                  className={`px-3 py-2 rounded-md text-sm font-medium transition-all duration-200 ${
-                    activeSection === item.id
-                      ? 'text-black bg-gray-100'
-                      : 'text-gray-600 hover:text-black hover:bg-gray-50'
-                  }`}
+                  className={`px-4 py-2 text-sm font-medium transition-colors duration-200 border-b-2 border-transparent hover:border-gray-900/70 ${
+                      activeSection === item.id
+                        ? 'text-black border-gray-900'
+                        : 'text-black/80 hover:text-black'
+                    }`}
                 >
                   {item.label}
                 </button>
@@ -187,7 +204,7 @@ function App() {
             <div className="md:hidden">
               <button
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
-                className="p-2 rounded-md text-gray-600 hover:text-black hover:bg-gray-50"
+                className="p-2 rounded-lg text-gray-900/80 hover:text-gray-900 hover:bg-white/20 transition-colors"
               >
                 {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
               </button>
@@ -196,7 +213,7 @@ function App() {
 
           {isMenuOpen && (
             <div className="md:hidden">
-              <div className="px-2 pt-2 pb-3 space-y-1 bg-white/95 backdrop-blur-md rounded-lg mt-2 border border-gray-200 shadow-lg">
+              <div className="px-2 pt-2 pb-3 space-y-1 bg-white/80 backdrop-blur-lg rounded-lg mt-2 border border-white/20 shadow-lg">
                 {navItems.map((item) => (
                   <button
                     key={item.id}
@@ -216,72 +233,106 @@ function App() {
         </div>
       </nav>
 
-      <section id="home" className="pt-16 min-h-screen flex items-center">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div className="space-y-8">
-              <AnimatedSection className="space-y-4">
-                <h1 className="text-5xl md:text-6xl font-bold text-gray-900">
-                  {personalInfo.name}
-                </h1>
-                <p className="text-xl md:text-2xl text-gray-700 font-medium">
-                  {personalInfo.role}
-                </p>
-                <p className="text-lg text-gray-600 max-w-lg">
-                  {personalInfo.slogan}
-                </p>
-              </AnimatedSection>
-      
-              <AnimatedSection delay={200} className="grid grid-cols-2 gap-6 max-w-md">
-                <div className="bg-white/80 backdrop-blur-sm rounded-lg p-4 border border-gray-200 shadow-sm">
-                  <h3 className="font-semibold text-gray-900">Languages</h3>
-                  <p className="text-gray-600">{personalInfo.languages.join(', ')}</p>
+      <section id="home" className="pt-16 min-h-screen flex items-center bg-white">
+        <div className="max-w-6xl mx-auto px-6 w-full">
+          <div className="grid lg:grid-cols-12 gap-8 items-center">
+            <div className="lg:col-span-7 flex flex-col h-full">
+              <div>
+                <AnimatedSection className="mb-10">
+                  <h1 className="text-4xl md:text-5xl font-bold text-gray-900 leading-tight mb-3">
+                    {personalInfo.name}
+                  </h1>
+                  <p className="text-2xl text-gray-600 mb-4">
+                    Associate Data Analyst
+                  </p>
+                  <div className="flex flex-wrap gap-2 mb-6">
+                    {[
+                      { text: 'Data Analysis', icon: <BarChart3 className="w-3.5 h-3.5 mr-1.5" /> },
+                      { text: 'Machine Learning', icon: <Cpu className="w-3.5 h-3.5 mr-1.5" /> },
+                      { text: 'Full-Stack', icon: <Code2 className="w-3.5 h-3.5 mr-1.5" /> },
+                      { text: 'Blockchain', icon: <Link2 className="w-3.5 h-3.5 mr-1.5" /> },
+                      { text: 'Cloud', icon: <Cloud className="w-3.5 h-3.5 mr-1.5" /> }
+                    ].map((tag, index) => (
+                      <span key={index} className="inline-flex items-center px-3 py-1.5 bg-gray-100 text-gray-700 text-sm rounded-full border border-gray-200 hover:bg-gray-50 transition-colors">
+                        {tag.icon}
+                        {tag.text}
+                      </span>
+                    ))}
+                  </div>
+                  <p className="text-gray-500 max-w-xl">
+                    {personalInfo.slogan}
+                  </p>
+                </AnimatedSection>
+              </div>
+              
+              <div className="mt-auto">
+                <div className="grid grid-cols-2 gap-3 mb-3">
+                  <AnimatedSection delay={200}>
+                    <div className="bg-gray-50 rounded-xl p-4 border border-gray-100 hover:shadow-md hover:border-gray-200 transition-all duration-300 transform hover:-translate-y-0.5 h-full group">
+                      <h3 className="font-medium text-gray-700 text-sm mb-1 group-hover:text-gray-900 transition-colors">Status</h3>
+                      <p className="text-gray-600 text-sm group-hover:text-gray-800 transition-colors">{personalInfo.status}</p>
+                    </div>
+                  </AnimatedSection>
+                  <AnimatedSection delay={200}>
+                    <div className="bg-gray-50 rounded-xl p-4 border border-gray-100 hover:shadow-md hover:border-gray-200 transition-all duration-300 transform hover:-translate-y-0.5 h-full group">
+                      <h3 className="font-medium text-gray-700 text-sm mb-1 group-hover:text-gray-900 transition-colors">Languages</h3>
+                      <p className="text-gray-600 text-sm group-hover:text-gray-800 transition-colors">{personalInfo.languages.join(', ')}</p>
+                    </div>
+                  </AnimatedSection>
                 </div>
-                <div className="bg-white/80 backdrop-blur-sm rounded-lg p-4 border border-gray-200 shadow-sm">
-                  <h3 className="font-semibold text-gray-900">Status</h3>
-                  <p className="text-gray-600">{personalInfo.status}</p>
+                
+                <AnimatedSection delay={250}>
+                  <div className="bg-gray-50 rounded-xl p-4 border border-gray-100 hover:shadow-md hover:border-gray-200 transition-all duration-300 transform hover:-translate-y-0.5 group">
+                    <h3 className="font-medium text-gray-700 text-sm mb-1 group-hover:text-gray-900 transition-colors">Education</h3>
+                    <p className="text-gray-600 text-sm group-hover:text-gray-800 transition-colors">{personalInfo.school}</p>
+                  </div>
+                </AnimatedSection>
+              </div>
+            </div>
+            
+            <div className="lg:col-span-5 flex justify-center">
+              <AnimatedSection delay={300} className="relative">
+                <div className="w-64 h-64 md:w-72 md:h-72 rounded-full overflow-hidden border-4 border-white shadow-xl mb-6">
+                  <img
+                    src="/ProfilePhoto.png"
+                    alt="Luke Lumakin"
+                    className="w-full h-full object-cover"
+                    onError={(e) => {
+                      const target = e.target as HTMLImageElement;
+                      target.src = 'https://via.placeholder.com/500x500?text=Luke+Lumakin';
+                    }}
+                  />
                 </div>
-                <div className="bg-white/80 backdrop-blur-sm rounded-lg p-4 border border-gray-200 shadow-sm col-span-2">
-                  <h3 className="font-semibold text-gray-900">Education</h3>
-                  <p className="text-gray-600">{personalInfo.school}</p>
+                <div className="flex flex-col space-y-3">
+                  <button
+                    onClick={() => window.open(personalInfo.resume, '_blank', 'noopener,noreferrer')}
+                    className="w-full flex items-center justify-center bg-gray-900 text-white px-6 py-3 rounded-lg hover:bg-gray-800 transition-all duration-300 shadow-sm hover:shadow-md transform hover:-translate-y-0.5 text-center"
+                  >
+                    View Resume
+                  </button>
+                  <div className="flex space-x-4">
+                    <a 
+                      href={personalInfo.github} 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="flex-1 flex items-center justify-center space-x-2 bg-gray-50 rounded-lg p-3 border border-gray-100 hover:shadow-sm transition-all duration-300 hover:bg-gray-100 transform hover:-translate-y-0.5 group"
+                    >
+                      <Github className="w-5 h-5 text-gray-600 group-hover:text-gray-900 transition-colors" />
+                      <span className="text-sm font-medium text-gray-700 group-hover:text-gray-900 transition-colors">GitHub</span>
+                    </a>
+                    <a 
+                      href={personalInfo.linkedin} 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="flex-1 flex items-center justify-center space-x-2 bg-gray-50 rounded-lg p-3 border border-gray-100 hover:shadow-sm transition-all duration-300 hover:bg-gray-100 transform hover:-translate-y-0.5 group"
+                    >
+                      <Linkedin className="w-5 h-5 text-gray-600 group-hover:text-gray-900 transition-colors" />
+                      <span className="text-sm font-medium text-gray-700 group-hover:text-gray-900 transition-colors">LinkedIn</span>
+                    </a>
+                  </div>
                 </div>
               </AnimatedSection>
             </div>
-      
-            <AnimatedSection delay={600} className="relative space-y-6">
-              <div className="w-full max-w-md mx-auto relative">
-                <div className="absolute -top-10 -left-10 w-32 h-32 bg-indigo-100 rounded-full z-0"></div>
-                <div className="absolute bottom-0 -right-10 w-20 h-20 bg-pink-100 rotate-12 rounded-lg z-0"></div>
-                <div className="relative z-10 overflow-hidden rounded-2xl shadow-2xl">
-                  <img
-                    src="/ProfilePhoto.png"
-                    alt="Profile"
-                    className="w-full h-auto object-cover"
-                  />
-                </div>
-              </div>
-      
-              <div className="flex justify-center space-x-4 z-10">
-                <a
-                  href={personalInfo.github}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center space-x-2 bg-white/80 backdrop-blur-sm border border-gray-200 text-gray-900 px-6 py-3 rounded-lg hover:bg-gray-100 transition-colors shadow-sm"
-                >
-                  <Github className="w-5 h-5" />
-                  <span>GitHub</span>
-                </a>
-                <a
-                  href={personalInfo.linkedin}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center space-x-2 bg-white/80 backdrop-blur-sm border border-gray-200 text-gray-900 px-6 py-3 rounded-lg hover:bg-gray-100 transition-colors shadow-sm"
-                >
-                  <Linkedin className="w-5 h-5" />
-                  <span>LinkedIn</span>
-                </a>
-              </div>
-            </AnimatedSection>
           </div>
         </div>
       </section>
