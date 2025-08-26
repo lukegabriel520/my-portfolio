@@ -11,7 +11,7 @@ export interface Project {
 export interface Accolade {
   title: string;
   organization: string;
-  year: string;
+  date: string; 
   link: string;
 }
 
@@ -72,123 +72,131 @@ export const accolades: Accolade[] = [
   {
     title: "Data Science Tools and Fundamentals",
     organization: "International Business Machines",
-    year: "2025",
+    date: "2025-08-26",
     link: "https://courses.cognitiveclass.ai/certificates/ff40c0232a6f4e2b9b7b390a498fee55",
     logo: "/logos/ibm.png"
   },
   {
     title: "DOST Spark-Up Challenge Qualifier",
     organization: "Department of Science and Technology",
-    year: "2025",
+    date: "2025-07-11",
     link: "https://jumpshare.com/s/0CDwPC6WCfOtppP2yJpE",
     logo: "/logos/dost.png"
   },
   {
     title: "WCHL International Hackathon Qualifier",
     organization: "World Computer Hacker League",
-    year: "2025",
+    date: "2025-06-20",
     link: "",
     logo: "/logos/wchl.png"
   },
   {
+    title: "ICP Hackathon Finalist",
+    organization: "ICP Philippines",
+    date: "2025-06-10",
+    link: "leave it blank",
+    logo: "/logos/icp.png"
+  },
+  {
     title: "React Foundations",
     organization: "Vercel",
-    year: "2025",
+    date: "2025-04-26",
     link: "https://www.linkedin.com/in/lukelumakin/details/certifications/",
     logo: "/logos/vercel.png"
   },
   {
     title: "Machine Learning Foundation",
     organization: "Amazon Web Services",
-    year: "2025",
+    date: "2025-03-17",
     link: "https://www.credly.com/earner/earned/share/484364f4-9d44-4943-8016-6545616eea42",
     logo: "/logos/amazon.png"
   },
   {
-    title: "Legacy JavaScript Algorithms and Data Structures",
-    organization: "FreeCodeCamp",
-    year: "2025",
-    link: "https://www.freecodecamp.org/certification/sausage520/javascript-algorithms-and-data-structures",
-    logo: "/logos/freecodecamp.png"
-  },
-  {
-    title: "DataCamp Scholar",
-    organization: "DataCamp",
-    year: "2025",
-    link: "https://www.facebook.com/share/p/1FwkatZSzm/",
-    logo: "/logos/datacamp.png"
+    title: "AWS Cloud Quest: Cloud Practitioner",
+    organization: "Amazon Web Services",
+    date: "2025-05-16",
+    link: "https://www.credly.com/badges/f7dcd56d-4f7d-4ab2-b236-ffa37b90055b/linked_in?t=swbnbh",
+    logo: "/logos/amazon.png"
   },
   {
     title: "Python Data Associate",
     organization: "DataCamp",
-    year: "2025",
+    date: "2025-07-07",
     link: "https://www.linkedin.com/in/lukelumakin/details/certifications/",
     logo: "/logos/datacamp.png"
   },
   {
     title: "Associate Data Analyst",
     organization: "DataCamp",
-    year: "2025",
+    date: "2025-02-27",
     link: "https://www.datacamp.com/certificate/DAA0013375515980",
     logo: "/logos/datacamp.png"
   },
   {
     title: "SQL Associate",
     organization: "DataCamp",
-    year: "2025",
+    date: "2025-03-24",
     link: "https://www.datacamp.com/certificate/SQA0010837343136",
     logo: "/logos/datacamp.png"
   },
   {
     title: "Cloud Practitioner",
     organization: "DataCamp",
-    year: "2025",
+    date: "2025-02-08",
     link: "https://www.datacamp.com/statement-of-accomplishment/track/9c4a8305f5a87c7029ff8951ed09c73d46c4da21?raw=1",
     logo: "/logos/datacamp.png"
   },
   {
-    title: "ICP Hackathon Finalist",
-    organization: "ICP Philippines",
-    year: "2025",
-    link: "leave it blank",
-    logo: "/logos/icp.png"
+    title: "Legacy JavaScript Algorithms and Data Structures",
+    organization: "FreeCodeCamp",
+    date: "2025-01-26",
+    link: "https://www.freecodecamp.org/certification/sausage520/javascript-algorithms-and-data-structures",
+    logo: "/logos/freecodecamp.png"
+  },
+  {
+    title: "DataCamp Scholar",
+    organization: "DataCamp",
+    date: "2025-01-27",
+    link: "https://www.facebook.com/share/p/1FwkatZSzm/",
+    logo: "/logos/datacamp.png"
   },
   {
     title: "DOST-SEI Scholar",
     organization: "Department of Science and Technology",
-    year: "2024",
+    date: "2024-06-20",
     link: "https://2024results.science-scholarships.ph",
     logo: "/logos/dost.png"
+  },
+
+  {
+    title: "DLSU Dasmarinas Research Conference Qualifier",
+    organization: "De La Salle University",
+    date: "2024-05-16",
+    link: "leave it blank",
+    logo: "/logos/dlsu.png"
   },
   {
     title: "UP ALCHEMES Research Fair Finalist",
     organization: "University of the Philippines",
-    year: "2024",
+    date: "2024-02-12",
     link: "leave it blank",
     logo: "/logos/up.png"
   },
   {
     title: "SEAMO Young Scientists Recipient",
     organization: "Southeast Asian Mathematical Olympiad Society",
-    year: "2024",
+    date: "2024-02-12",
     link: "leave it blank",
     logo: "/logos/seamo.png"
   },
   {
-    title: "DLSU Dasmarinas Research Conference Qualifier",
-    organization: "De La Salle University",
-    year: "2024",
-    link: "leave it blank",
-    logo: "/logos/dlsu.png"
-  },
-  {
     title: "Division Science and Technology Fair",
     organization: "DEPED",
-    year: "2023",
+    date: "2023-11-14",
     link: "leave it blank",
     logo: "/logos/deped.png"
   }
-].sort((a, b) => parseInt(b.year) - parseInt(a.year));
+].sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
 
 export const affiliations: Affiliation[] = [
     {

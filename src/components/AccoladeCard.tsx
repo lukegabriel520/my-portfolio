@@ -31,7 +31,7 @@ const getLogoPath = (organization: string): string => {
 interface Accolade {
   title: string;
   organization: string;
-  year: string;
+  date: string; // Format: 'YYYY-MM-DD' for sorting and parsing
   link: string;
   issuer?: string;
   logo?: string; 
@@ -56,6 +56,15 @@ const AccoladeCard: React.FC<AccoladeCardProps> = ({ accolades }) => {
 
   const goToPage = (page: number) => {
     setCurrentPage(page);
+  };
+
+  const formatDate = (dateString: string) => {
+    const options: Intl.DateTimeFormatOptions = { 
+      year: 'numeric', 
+      month: 'long', 
+      day: 'numeric' 
+    };
+    return new Date(dateString).toLocaleDateString('en-US', options);
   };
 
   const renderOrganizationLogo = (accolade: Accolade) => {
@@ -115,7 +124,7 @@ const AccoladeCard: React.FC<AccoladeCardProps> = ({ accolades }) => {
                       
                       <div className="mt-3 pt-2.5 border-t border-gray-100 flex justify-between items-center">
                         <span className="text-xs text-gray-500 font-medium">
-                          {accolade.year}
+                          {formatDate(accolade.date)}
                         </span>
                         <div className="ml-auto">
                           <div className="inline-flex items-center justify-center px-3 h-7 rounded-full text-xs font-medium bg-white/80 text-gray-700 border border-white/80 group-hover:bg-white group-hover:border-white transition-all duration-200 shadow-sm hover:shadow-md hover:-translate-y-0.5">
