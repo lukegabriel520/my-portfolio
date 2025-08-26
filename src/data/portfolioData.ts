@@ -70,6 +70,13 @@ export const projects: Project[] = [
 
 export const accolades: Accolade[] = [
   {
+    title: "Data Science Tools and Fundamentals",
+    organization: "International Business Machines",
+    year: "2025",
+    link: "https://courses.cognitiveclass.ai/certificates/ff40c0232a6f4e2b9b7b390a498fee55",
+    logo: "/logos/ibm.png"
+  },
+  {
     title: "DOST Spark-Up Challenge Qualifier",
     organization: "Department of Science and Technology",
     year: "2025",
