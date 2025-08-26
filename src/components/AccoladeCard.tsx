@@ -4,6 +4,7 @@ import AnimatedSection from './AnimatedSection';
 
 const getLogoPath = (organization: string): string => {
   const logoMap: Record<string, string> = {
+    'GitHub': 'github.png',
     'International Business Machines': 'ibm.png',
     'Department of Education': 'deped.png',
     'Department of Science and Technology': 'dost.png',

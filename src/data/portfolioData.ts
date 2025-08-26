@@ -105,6 +105,13 @@ export const accolades: Accolade[] = [
     logo: "/logos/vercel.png"
   },
   {
+    title: "GitHub Foundations",
+    organization: "GitHub",
+    date: "2025-04-26",
+    link: "https://www.datacamp.com/statement-of-accomplishment/track/b3c3336c37045f13cd94aac35315daf73bfe9a2f?raw=1",
+    logo: "/logos/github.png"
+  },
+  {
     title: "Machine Learning Foundation",
     organization: "Amazon Web Services",
     date: "2025-03-17",
