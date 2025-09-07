@@ -70,6 +70,13 @@ export const projects: Project[] = [
 
 export const accolades: Accolade[] = [
   {
+    title: "Google Data Analytics Certificate",
+    organization: "Google",
+    date: "2025-09-07",
+    link: "https://www.coursera.org/account/accomplishments/specialization/Q1XCPBYLIL1L",
+    logo: "/logos/google.png"
+  },
+  {
     title: "Data Science Tools and Fundamentals",
     organization: "International Business Machines",
     date: "2025-08-26",

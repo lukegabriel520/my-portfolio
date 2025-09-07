@@ -32,7 +32,7 @@ const getLogoPath = (organization: string): string => {
 interface Accolade {
   title: string;
   organization: string;
-  date: string; // Format: 'YYYY-MM-DD' for sorting and parsing
+  date: string; 
   link: string;
   issuer?: string;
   logo?: string; 
