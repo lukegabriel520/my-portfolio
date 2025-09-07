@@ -246,18 +246,17 @@ function App() {
                     Associate Data Analyst
                   </p>
                   <div className="flex flex-wrap gap-2 mb-6">
-                    {[
-                      { text: 'Data Analysis', icon: <BarChart3 className="w-3.5 h-3.5 mr-1.5" /> },
-                      { text: 'Machine Learning', icon: <Cpu className="w-3.5 h-3.5 mr-1.5" /> },
-                      { text: 'Full-Stack', icon: <Code2 className="w-3.5 h-3.5 mr-1.5" /> },
-                      { text: 'Blockchain', icon: <Link2 className="w-3.5 h-3.5 mr-1.5" /> },
-                      { text: 'Cloud', icon: <Cloud className="w-3.5 h-3.5 mr-1.5" /> }
-                    ].map((tag, index) => (
-                      <span key={index} className="inline-flex items-center px-3 py-1.5 bg-gray-100 text-gray-700 text-sm rounded-full border border-gray-200 hover:bg-gray-50 transition-colors">
-                        {tag.icon}
-                        {tag.text}
-                      </span>
-                    ))}
+                      {[
+                        { text: 'Data Analysis', icon: <BarChart3 className="w-3.5 h-3.5 mr-1.5" /> },
+                        { text: 'Robotics', icon: <Cpu className="w-3.5 h-3.5 mr-1.5" /> },
+                        { text: 'Machine Learning', icon: <BarChart3 className="w-3.5 h-3.5 mr-1.5" /> },
+                        { text: 'Blockchain', icon: <Link2 className="w-3.5 h-3.5 mr-1.5" /> }
+                      ].map((tag, index) => (
+                        <span key={index} className="inline-flex items-center px-3 py-1.5 bg-gray-100 text-gray-700 text-sm rounded-full border border-gray-200 hover:bg-gray-50 transition-colors">
+                          {tag.icon}
+                          {tag.text}
+                        </span>
+                      ))}
                   </div>
                   <p className="text-gray-500 max-w-xl">
                     {personalInfo.slogan}
