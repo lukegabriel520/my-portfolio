@@ -300,5 +300,5 @@ export const personalInfo = {
   email: "lukegabriel520@gmail.com",
   github: "https://github.com/lukegabriel520",
   linkedin: "https://linkedin.com/in/lukelumakin",
-  resume: "https://lumakin-cv.tiiny.site"
+  resume: "https://lukelumakin.tiiny.site"
 };
