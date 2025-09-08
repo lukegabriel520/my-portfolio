@@ -261,7 +261,7 @@ export const testimonials: Testimonial[] = [
     {
       name: "Neil Balantac",
       role: "Full-Stack Developer",
-      content: "Thanks to Luke, I finally understood how to build a responsive website from scratch. He explains things simply but effectively—perfect for someone just starting out.",
+      content: "Thanks to Luke, I finally understood how to build a responsive website from scratch. He explains things simply but effectively, perfect for someone just starting out.",
       avatar: "/people/NeilBalantac.png"
     },
     {
@@ -272,7 +272,7 @@ export const testimonials: Testimonial[] = [
     },
     {
       name: "Julius Miranda",
-      role: "Aspiring AI/ML Engineer",
+      role: "Aspiring Data Scientist",
       content: "Explaining HTML and CSS isn't always easy, but Luke made it feel intuitive. His teaching style adapts to what you need, not just what the topic is.",
       avatar: "/people/JuliusMiranda.png"
     },
@@ -284,8 +284,8 @@ export const testimonials: Testimonial[] = [
     },
     {
       name: "Charles Chua",
-      role: "Project Manager",
-      content: "We worked together on a mini-game in JavaScript, and I learned more than I expected. Luke doesn't just give solutions—he makes sure you understand why it works.",
+      role: "Game Developer",
+      content: "We worked together on a mini-game in JavaScript, and I learned more than I expected. Luke doesn't just give solutions, he makes sure you understand why it works.",
       avatar: "/people/CharlesChua.png"
     }
   ];
