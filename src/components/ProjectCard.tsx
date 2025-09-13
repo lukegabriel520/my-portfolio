@@ -55,7 +55,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
             className="flex items-center space-x-2 text-gray-700 hover:text-gray-900 transition-colors"
           >
             <Github className="w-4 h-4" />
-            <span>View Code</span>
+            <span className="relative underline-animate">View Code</span>
           </a>
           <a
             href={project.demoUrl}
@@ -64,7 +64,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
             className="flex items-center space-x-2 text-gray-700 hover:text-gray-900 transition-colors"
           >
             <ExternalLink className="w-4 h-4" />
-            <span>View Demo</span>
+            <span className="relative underline-animate">View Demo</span>
           </a>
         </div>
       </div>
