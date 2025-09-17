@@ -214,16 +214,22 @@ export const accolades: Accolade[] = [
 
 export const affiliations: Affiliation[] = [
     {
+      name: "Junior Blockchain Education Consortium of the Philippines",
+      role: "President",
+      description: "Overseeing club activities in blockchain education.",
+      logo: "/affiliations/JBECP.png"
+    },
+    {
+      name: "The BLOKC",
+      role: "Intern",
+      description: "Trained in Web3 development with focus on Base and Solidity smart contracts.",
+      logo: "/affiliations/BLOKC.png"
+    },
+    {
       name: "DevCon Philippines",
       role: "Member",
       description: "Assisted in logistics and operations for tech events and community programs.",
       logo: "/affiliations/DevCon.png"
-    },
-    {
-      name: "The BLOKC",
-      role: "Cohort Mentee",
-      description: "Trained in Web3 development with focus on Base and Solidity smart contracts.",
-      logo: "/affiliations/BLOKC.png"
     },
     {
       name: "Google Developer Students Club",
@@ -232,21 +238,15 @@ export const affiliations: Affiliation[] = [
       logo: "/affiliations/GDSC.png"
     },
     {
-      name: "Junior Blockchain Education Consortium of the Philippines",
-      role: "Finance",
-      description: "Underwent finance mentoring and budgeting for club-related student initiatives.",
-      logo: "/affiliations/JBECP.png"
-    },
-    {
       name: "Microsoft Student Community",
       role: "Member",
-      description: "Engaged in learning sessions on Azure, GitHub, and Microsoft tools.",
+      description: "Engaged in learning sessions on Azure, and Microsoft tools.",
       logo: "/affiliations/MSC.png"
     },
     {
       name: "AWS Cloud Club",
       role: "Member",
-      description: "Participated in cloud computing activities using AWS services and labs.",
+      description: "Attended seminars and hands-on labs on AWS cloud services and architecture.",
       logo: "/affiliations/AWS.png"
     }
   ];
@@ -255,47 +255,47 @@ export const testimonials: Testimonial[] = [
     {
       name: "James Larios",
       role: "Junior Java Developer",
-      content: "When I got stuck debugging Python, Luke stepped in and explained each error clearly. His guidance helped me spot mistakes I didn't even know I was making.",
+      content: "When I got stuck debugging Java code, he stepped in and explained each error clearly. His guidance helped me spot mistakes I didn't even know I was making.",
       avatar: "/people/JamesLarios.png"
     },
     {
       name: "Neil Balantac",
-      role: "Full-Stack Developer",
-      content: "Thanks to Luke, I finally understood how to build a responsive website from scratch. He explains things simply but effectively, perfect for someone just starting out.",
+      role: "MongoDB Developer",
+      content: "Luke is an exceptional mentor who goes above and beyond to ensure his friends truly understand the material. His ability to break down complex concepts into manageable pieces made learning Python enjoyable and effective.",
       avatar: "/people/NeilBalantac.png"
     },
     {
       name: "James Matienzo",
-      role: "AI Enthusiast",
+      role: "AI/ML Lead @ TUP GDSC",
       content: "I've always been interested in AI, and Luke introduced me to ML in a way that made sense. He connects the dots between theory and code really well.",
       avatar: "/people/JamesMatienzo.png"
     },
     {
       name: "Julius Miranda",
-      role: "Aspiring Data Scientist",
-      content: "Explaining HTML and CSS isn't always easy, but Luke made it feel intuitive. His teaching style adapts to what you need, not just what the topic is.",
+      role: "UP Data Scientist",
+      content: "He has a knack for breaking down complex data concepts into easy-to-understand lessons. His patience and clear explanations made learning data analysis enjoyable.",
       avatar: "/people/JuliusMiranda.png"
     },
     {
       name: "Jimnoeri Enriquez",
       role: "UI/UX Designer",
-      content: "He introduced me to GitHub and taught me how to properly manage my code. What stood out was how patient he was even when I needed things repeated.",
+      content: "It was a pleasure working with Luke. What stood out was how patient he was even when I needed things repeated especially in our hackathons.",
       avatar: "/people/JimnoeriEnriquez.png"
     },
     {
       name: "Charles Chua",
-      role: "Game Developer",
-      content: "We worked together on a mini-game in JavaScript, and I learned more than I expected. Luke doesn't just give solutions, he makes sure you understand why it works.",
+      role: "Chief Relations Officer @ JBECP",
+      content: "Luke is a natural teacher. He breaks down complex topics into simple steps, making learning enjoyable and effective. His passion for coding is contagious.",
       avatar: "/people/CharlesChua.png"
     }
   ];
 
 export const personalInfo = {
   name: "Luke Lumakin",
-  role: "Associate Data Analyst",
+  role: "President @ JBECP | Associate Data Analyst",
   slogan: "I like building things through Mechatronics, IoT, and AI/ML, eventually to extend human capabilities. Innovate, lest, reproducible brilliance.",
   languages: ["Filipino", "English"],
-  status: "Blockchain Intern",
+  status: "Blockchain Intern @ Blocklabs Academy",
   school: "Pamantasan ng Lungsod ng Maynila (PLM)",
   email: "lukegabriel520@gmail.com",
   github: "https://github.com/lukegabriel520",
