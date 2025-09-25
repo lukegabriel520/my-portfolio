@@ -41,7 +41,7 @@ export const projects: Project[] = [
   },
   {
     title: "CertiFi",
-    description: "CertiFi is a digital verification service that proves whether documents are real or fake. The platform works by having official organizations upload authentic documents, which CertiFi then converts into unique digital signatures and stores permanently on blockchain technology. When someone needs to verify a document later, they submit it to CertiFi, which creates a new digital signature and compares it to the original stored version. If the signatures match perfectly, the document is genuine; if they don't match, it's been altered or forged.",
+    description: "A digital verification service that proves whether documents are real or fake. The platform works by having official organizations upload authentic documents, which CertiFi then converts into unique digital signatures and stores permanently on blockchain technology. When someone needs to verify a document later, they submit it to CertiFi, which creates a new digital signature and compares it to the original stored version. If the signatures match perfectly, the document is genuine; if they don't match, it's been altered or forged.",
     technologies: ["Motoko", "ReactJS", "ICP", "Linux", "TailwindCSS"],
     githubUrl: "https://github.com/lukegabriel520/CertiFi",
     demoUrl: "https://github.com/lukegabriel520/CertiFi",
@@ -50,7 +50,7 @@ export const projects: Project[] = [
   },
   {
     title: "Alerto: ESP32 Fire System",
-    description: "Alerto is your ESP32-powered fire system that intends to shelter your worries from impeding fire disasters. Equipped with MQ6 Sensor for early-gas detection, alongside with Fire Sensor for the infrared readings that will eventually output a ringing buzz when fire is detected. Arduino software was used to ensure compatability with the system.",
+    description: "An ESP32-powered fire system that intends to shelter your worries from impeding fire disasters. Equipped with MQ6 Sensor for early-gas detection, alongside with Fire Sensor for the infrared readings that will eventually output a ringing buzz when fire is detected. Arduino software was used to ensure compatability with the system.",
     technologies: ["Arduino", "ESP32", "C++", "Sensors", "Electronics"],
     githubUrl: "https://github.com/lukegabriel520/ESP32-Fire-System",
     demoUrl: "https://wokwi.com/projects/421769575820944385?fbclid=IwY2xjawLOwtpleHRuA2FlbQIxMABicmlkETF2QVBLdm5ZdnE1S2sxMjlNAR5_69_zApRMp-1Tvn7LzxwozwfF1_wX0bz2mXV4Zk9-qS6OlpLWKoqgn_lCMQ_aem_TF7J5ACo5rqG9ePv-Xy0Ow",
@@ -293,7 +293,7 @@ export const testimonials: Testimonial[] = [
 export const personalInfo = {
   name: "Luke Lumakin",
   role: "President @ JBECP | Associate Data Analyst",
-  slogan: "I like building things through Mechatronics, IoT, and AI/ML, eventually to extend human capabilities. Innovate, lest, reproducible brilliance.",
+  slogan: "I like building things through Mechatronics, and AI/ML, eventually to extend human capabilities. Innovate, lest, reproducible brilliance.",
   languages: ["Filipino", "English"],
   status: "Blockchain Intern @ Blocklabs Academy",
   school: "Pamantasan ng Lungsod ng Maynila (PLM)",

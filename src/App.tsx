@@ -243,11 +243,11 @@ function App() {
                     {personalInfo.name}
                   </h1>
                   <p className="text-2xl text-gray-600 mb-4">
-                    Associate Data Analyst
+                    President @ JBECP | Associate Data Analyst
                   </p>
                   <div className="flex flex-wrap gap-2 mb-6">
                       {[
-                        { text: 'Data Analysis', icon: <BarChart3 className="w-3.5 h-3.5 mr-1.5" /> },
+                        { text: 'Data Analytics', icon: <BarChart3 className="w-3.5 h-3.5 mr-1.5" /> },
                         { text: 'Robotics', icon: <Cpu className="w-3.5 h-3.5 mr-1.5" /> },
                         { text: 'Machine Learning', icon: <Code2 className="w-3.5 h-3.5 mr-1.5" /> },
                         { text: 'Blockchain', icon: <Link2 className="w-3.5 h-3.5 mr-1.5" /> }
@@ -307,7 +307,7 @@ function App() {
                     onClick={() => window.open(personalInfo.resume, '_blank', 'noopener,noreferrer')}
                     className="w-full flex items-center justify-center bg-gray-900 text-white px-6 py-3 rounded-lg hover:bg-gray-800 transition-all duration-300 shadow-sm hover:shadow-md transform hover:-translate-y-0.5 text-center"
                   >
-                    View Resume
+                    View My Resume
                   </button>
                   <div className="flex space-x-4">
                     <a 
@@ -396,7 +396,7 @@ function App() {
               Recommendations
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              What others say about working with me
+              What my peers say about working with me
             </p>
           </AnimatedSection>
 
@@ -411,7 +411,7 @@ function App() {
               Let's Connect
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Ready to collaborate on your next project
+              Ready to collaborate? Send me a message!
             </p>
           </AnimatedSection>
 
