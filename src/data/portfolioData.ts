@@ -292,7 +292,7 @@ export const testimonials: Testimonial[] = [
 
 export const personalInfo = {
   name: "Luke Lumakin",
-  role: "President @ JBECP | Associate Data Analyst",
+  role: "Associate Data Analyst",
   slogan: "I like building things through Mechatronics, and AI/ML, eventually to extend human capabilities. Innovate, lest, reproducible brilliance.",
   languages: ["Filipino", "English"],
   status: "Blockchain Intern @ Blocklabs Academy",
