@@ -215,7 +215,7 @@ export const accolades: Accolade[] = [
 export const affiliations: Affiliation[] = [
     {
       name: "Junior Blockchain Education Consortium of the Philippines",
-      role: "President",
+      role: "Chief Technology Officer",
       description: "Overseeing club activities in blockchain education.",
       logo: "/affiliations/JBECP.png"
     },
