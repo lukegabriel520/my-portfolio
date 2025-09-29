@@ -17,17 +17,21 @@ import ProjectCard from './components/ProjectCard';
 import AccoladeCard from './components/AccoladeCard';
 import AffiliationCard from './components/AffiliationCard';
 import TestimonialCarousel from './components/TestimonialCarousel';
-import { projects, accolades, affiliations, testimonials, personalInfo } from './data/portfolioData';
+import { projects, accolades, affiliations, testimonials, personalInfo, ProjectCategory } from './data/portfolioData';
 
 function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
   const [scrolled, setScrolled] = useState(false);
+  const [atTop, setAtTop] = useState(true);
+  const [selectedCategory, setSelectedCategory] = useState<ProjectCategory>('Software Engineering');
 
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 10);
+      setAtTop(window.scrollY < 100);
     };
+    handleScroll();
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
@@ -162,25 +166,29 @@ function App() {
       <nav 
         className={`fixed top-0 w-full z-50 transition-all duration-300 ${
           scrolled 
-            ? 'bg-white/10 backdrop-blur-md shadow-lg border-b border-white/10' 
-            : 'bg-white/5 backdrop-blur-sm border-b border-white/5'
+            ? 'bg-white/30 backdrop-blur-md shadow-lg border-b border-white/20' 
+            : 'bg-transparent backdrop-blur-sm border-b border-white/10'
         }`}
       >
         <div className="max-w-7xl mx-auto px-6">
           <div className="flex justify-between items-center h-16">
-            <div className="flex items-center space-x-4">
-              <div className="w-12 h-12 rounded-xl flex items-center justify-center bg-white/20 backdrop-blur-sm border border-white/20 p-2">
+            <div className="flex items-center -ml-8 space-x-3">
+              <div className={`w-10 h-10 rounded-xl flex items-center justify-center backdrop-blur-sm p-1.5 transition-all duration-300 ${
+                atTop ? 'bg-white/20 border-white/20' : 'bg-white/40 border-white/30 shadow-sm'
+              }`}>
                 <img 
                   src="/LL_Logo.png" 
                   alt="Luke Lumakin Logo" 
                   className="h-full w-auto object-contain"
                   onError={(e) => {
                     const target = e.target as HTMLImageElement;
-                    target.src = 'https://via.placeholder.com/48?text=LL';
+                    target.src = 'https://via.placeholder.com/40?text=LL';
                   }}
                 />
               </div>
-              <span className="text-xl font-bold text-gray-900 font-sans">
+              <span className={`text-lg font-medium font-sans transition-colors duration-300 ${
+                atTop ? 'text-white' : 'text-gray-900'
+              }`}>
                 {personalInfo.name}
               </span>
             </div>
@@ -190,11 +198,13 @@ function App() {
                 <button
                   key={item.id}
                   onClick={() => scrollToSection(item.id)}
-                  className={`px-4 py-2 text-sm font-medium transition-colors duration-200 border-b-2 border-transparent hover:border-gray-900/70 ${
-                      activeSection === item.id
-                        ? 'text-black border-gray-900'
-                        : 'text-black/80 hover:text-black'
-                    }`}
+                  className={`px-4 py-2 text-sm font-medium transition-all duration-300 border-b-2 border-transparent ${
+                    activeSection === item.id
+                      ? `border-current ${atTop ? 'text-white' : 'text-gray-900'}`
+                      : atTop 
+                        ? 'text-white/80 hover:text-white hover:border-white/50' 
+                        : 'text-gray-600 hover:text-gray-900 hover:border-gray-300'
+                  }`}
                 >
                   {item.label}
                 </button>
@@ -204,7 +214,11 @@ function App() {
             <div className="md:hidden">
               <button
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
-                className="p-2 rounded-lg text-gray-900/80 hover:text-gray-900 hover:bg-white/20 transition-colors"
+                className={`p-2 rounded-lg transition-colors ${
+                  atTop 
+                    ? 'text-white/80 hover:text-white hover:bg-white/20' 
+                    : 'text-gray-600 hover:text-gray-900 hover:bg-gray-100'
+                }`}
               >
                 {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
               </button>
@@ -213,15 +227,15 @@ function App() {
 
           {isMenuOpen && (
             <div className="md:hidden">
-              <div className="px-2 pt-2 pb-3 space-y-1 bg-white/80 backdrop-blur-lg rounded-lg mt-2 border border-white/20 shadow-lg">
+              <div className="px-2 pt-2 pb-3 space-y-1 bg-white/30 backdrop-blur-lg rounded-lg mt-2 border border-white/20 shadow-lg">
                 {navItems.map((item) => (
                   <button
                     key={item.id}
                     onClick={() => scrollToSection(item.id)}
                     className={`block w-full text-left px-3 py-2 rounded-md text-sm font-medium transition-all duration-200 ${
                       activeSection === item.id
-                        ? 'text-black bg-gray-100'
-                        : 'text-gray-600 hover:text-black hover:bg-gray-50'
+                        ? `${atTop ? 'text-white bg-white/20' : 'text-gray-900 bg-gray-100'}`
+                        : `${atTop ? 'text-white/80 hover:bg-white/10' : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900'}`
                     }`}
                   >
                     {item.label}
@@ -233,32 +247,58 @@ function App() {
         </div>
       </nav>
 
-      <section id="home" className="pt-16 min-h-screen flex items-center bg-white">
-        <div className="max-w-6xl mx-auto px-6 w-full">
+      <section id="home" className="relative pt-16 min-h-screen flex items-center overflow-hidden bg-white">
+        {/* Background Image with Fade */}
+        <div className="absolute inset-0 z-0">
+          <div className="relative h-full w-full" style={{
+            height: 'calc(100% - 25rem)', // Adjust this value to control where the image ends
+            overflow: 'hidden'
+          }}>
+            <img 
+              src="/Background.png" 
+              alt="City background" 
+              className="w-full h-full object-cover object-center"
+              style={{
+                objectPosition: 'center 40%',
+                width: '100%',
+                height: '100%',
+                filter: 'brightness(1.1) contrast(1.1)'
+              }}
+              onError={(e) => {
+                const target = e.target as HTMLImageElement;
+                target.style.display = 'none';
+              }}
+            />
+            <div className="absolute inset-0 bg-gradient-to-b from-gray-900/5 to-transparent"></div>
+            <div className="absolute bottom-0 left-0 right-0 h-3/4 bg-gradient-to-t from-white via-white/90 to-transparent"></div>
+          </div>
+        </div>
+        
+        <div className="max-w-6xl mx-auto px-6 w-full relative z-10">
           <div className="grid lg:grid-cols-12 gap-8 items-center">
-            <div className="lg:col-span-7 flex flex-col h-full">
+            <div className="lg:col-span-7 flex flex-col h-full text-white">
               <div>
                 <AnimatedSection className="mb-10">
-                  <h1 className="text-4xl md:text-5xl font-bold text-gray-900 leading-tight mb-3">
+                  <h1 className="text-4xl md:text-5xl font-bold text-gray-900 leading-tight mb-3 relative z-10 drop-shadow-sm">
                     {personalInfo.name}
                   </h1>
-                  <p className="text-2xl text-gray-600 mb-4">
+                  <p className="text-2xl text-gray-700 mb-6 relative z-10 drop-shadow-sm">
                     CTO @ JBECP - Haribon | Associate Data Analyst
                   </p>
-                  <div className="flex flex-wrap gap-2 mb-6">
+                  <div className="flex flex-wrap gap-2 mb-8 relative z-10">
                       {[
-                        { text: 'Data Analytics', icon: <BarChart3 className="w-3.5 h-3.5 mr-1.5" /> },
-                        { text: 'Robotics', icon: <Cpu className="w-3.5 h-3.5 mr-1.5" /> },
-                        { text: 'Machine Learning', icon: <Code2 className="w-3.5 h-3.5 mr-1.5" /> },
+                        { text: 'Data Science', icon: <BarChart3 className="w-3.5 h-3.5 mr-1.5" /> },
+                        { text: 'Machine Learning', icon: <Cpu className="w-3.5 h-3.5 mr-1.5" /> },
+                        { text: 'Full-Stack', icon: <Code2 className="w-3.5 h-3.5 mr-1.5" /> },
                         { text: 'Blockchain', icon: <Link2 className="w-3.5 h-3.5 mr-1.5" /> }
                       ].map((tag, index) => (
-                        <span key={index} className="inline-flex items-center px-3 py-1.5 bg-gray-100 text-gray-700 text-sm rounded-full border border-gray-200 hover:bg-gray-50 transition-colors">
+                        <span key={index} className="inline-flex items-center px-4 py-1.5 bg-white/80 backdrop-blur-sm text-gray-800 text-sm rounded-full border border-gray-200 hover:bg-white transition-colors shadow-sm">
                           {tag.icon}
                           {tag.text}
                         </span>
                       ))}
                   </div>
-                  <p className="text-gray-500 max-w-xl">
+                  <p className="text-gray-600 max-w-xl relative z-10 drop-shadow-sm">
                     {personalInfo.slogan}
                   </p>
                 </AnimatedSection>
@@ -338,20 +378,44 @@ function App() {
       
       <section id="projects" className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <AnimatedSection className="text-center mb-16">
+          <AnimatedSection className="text-center">
             <h2 className="text-4xl font-bold text-gray-900 mb-4">
               Projects
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-12">
               My latest works
             </p>
           </AnimatedSection>
-
-          <div className="grid md:grid-cols-2 gap-8">
-            {projects.map((project, index) => (
-              <ProjectCard key={index} project={project} index={index} />
+          
+          <div className="grid grid-cols-3 max-w-2xl mx-auto mb-16 border-b border-gray-200">
+            {['Software Engineering', 'Robotics', 'Research'].map((category) => (
+              <button
+                key={category}
+                onClick={() => setSelectedCategory(category as ProjectCategory)}
+                className={`py-3 px-1 text-sm font-medium border-b-2 transition-colors ${
+                  selectedCategory === category
+                    ? 'border-black text-black'
+                    : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
+                }`}
+              >
+                {category}
+              </button>
             ))}
           </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {projects
+              .filter(project => project.category === selectedCategory)
+              .map((project, index) => (
+                <ProjectCard key={index} project={project} index={index} />
+              ))}
+          </div>
+          
+          {projects.filter(project => project.category === selectedCategory).length === 0 && (
+            <div className="text-center py-12">
+              <p className="text-gray-500">Will be updating this with my accomplished projects soon...</p>
+            </div>
+          )}
         </div>
       </section>
 
@@ -507,40 +571,6 @@ function App() {
               </div>
             </form>
           </AnimatedSection>
-
-          <div className="grid md:grid-cols-3 gap-6 mt-16">
-            <AnimatedSection delay={300} className="text-center">
-              <div className="w-12 h-12 bg-gray-900 rounded-lg flex items-center justify-center mx-auto mb-4">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" className="w-7 h-7">
-                  <path d="M6 8h12v8H6V8zm0 0l6 5 6-5" stroke="white" strokeWidth="2" fill="none" />
-                </svg>
-              </div>
-              <h3 className="text-base font-medium text-gray-800 mb-1">Email</h3>
-              <p className="text-gray-700 font-normal">{personalInfo.email}</p>
-            </AnimatedSection>
-            <AnimatedSection delay={400} className="text-center">
-              <div className="w-12 h-12 bg-gray-900 rounded-lg flex items-center justify-center mx-auto mb-4">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" className="w-7 h-7">
-                  <rect x="3" y="3" width="18" height="18" rx="4" fill="none" stroke="white" strokeWidth="2" />
-                  <circle cx="7.5" cy="7" r="1.5" fill="white" />
-                  <rect x="6" y="10" width="3" height="8" rx="1.5" fill="white" />
-                  <path d="M12 10H14.5C16.1569 10 17.5 11.3431 17.5 13V18H15V13.5C15 13.2239 14.7761 13 14.5 13H12V18H9.5V10H12Z" fill="white" />
-                </svg>
-              </div>
-              <h3 className="text-base font-medium text-gray-800 mb-1">LinkedIn</h3>
-              <p className="text-gray-700 font-normal">linkedin.com/in/lukelumakin</p>
-            </AnimatedSection>
-            <AnimatedSection delay={500} className="text-center">
-              <div className="w-12 h-12 bg-gray-900 rounded-lg flex items-center justify-center mx-auto mb-4">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" className="w-6 h-6">
-                  <rect width="24" height="24" rx="4" fill="#181717" />
-                  <path d="M12 2C6.477 2 2 6.484 2 12.012c0 4.428 2.865 8.184 6.839 9.525.5.092.682-.217.682-.483 0-.237-.009-.868-.013-1.703-2.782.605-3.37-1.342-3.37-1.342-.454-1.155-1.11-1.463-1.11-1.463-.908-.62.069-.608.069-.608 1.004.07 1.532 1.032 1.532 1.032.892 1.53 2.341 1.088 2.91.832.091-.646.35-1.088.636-1.34-2.221-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.254-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.025A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.295 2.748-1.025 2.748-1.025.546 1.378.202 2.396.1 2.65.64.7 1.028 1.595 1.028 2.688 0 3.847-2.337 4.695-4.566 4.944.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.579.688.481C19.138 20.192 22 16.44 22 12.012 22 6.484 17.523 2 12 2z" fill="white" />
-                </svg>
-              </div>
-              <h3 className="text-lg font-semibold text-gray-900 mb-2">GitHub</h3>
-              <p className="text-gray-600">github.com/lukegabriel520</p>
-            </AnimatedSection>
-          </div>
         </div>
       </section>
 

@@ -1,3 +1,5 @@
+export type ProjectCategory = 'Software Engineering' | 'Robotics' | 'Research';
+
 export interface Project {
   title: string;
   description: string;
@@ -6,6 +8,7 @@ export interface Project {
   demoUrl: string;
   image: string;
   year: number;
+  category: ProjectCategory;
 }
 
 export interface Accolade {
@@ -37,7 +40,8 @@ export const projects: Project[] = [
     githubUrl: "https://github.com/lukegabriel520/PaintedPages",
     demoUrl: "https://paintedpages.netlify.app",
     image: "/projects/PaintedPages.png",
-    year: 2025
+    year: 2025,
+    category: 'Software Engineering' as const
   },
   {
     title: "CertiFi",
@@ -46,7 +50,8 @@ export const projects: Project[] = [
     githubUrl: "https://github.com/lukegabriel520/CertiFi",
     demoUrl: "https://github.com/lukegabriel520/CertiFi",
     image: "/projects/CertiFi.png",
-    year: 2024
+    year: 2024,
+    category: 'Software Engineering' as const
   },
   {
     title: "Alerto: ESP32 Fire System",
@@ -55,7 +60,8 @@ export const projects: Project[] = [
     githubUrl: "https://github.com/lukegabriel520/ESP32-Fire-System",
     demoUrl: "https://wokwi.com/projects/421769575820944385?fbclid=IwY2xjawLOwtpleHRuA2FlbQIxMABicmlkETF2QVBLdm5ZdnE1S2sxMjlNAR5_69_zApRMp-1Tvn7LzxwozwfF1_wX0bz2mXV4Zk9-qS6OlpLWKoqgn_lCMQ_aem_TF7J5ACo5rqG9ePv-Xy0Ow",
     image: "/projects/FireSystem.png",
-    year: 2024
+    year: 2024,
+    category: 'Robotics' as const
   },
   {
     title: "Banking System",
@@ -64,7 +70,8 @@ export const projects: Project[] = [
     githubUrl: "https://github.com/lukegabriel520/C-ICC-BankingSystem",
     demoUrl: "https://github.com/lukegabriel520/C-ICC-BankingSystem",
     image: "/projects/BankingSystem.png",
-    year: 2023
+    year: 2023,
+    category: 'Software Engineering' as const
   }
 ].sort((a, b) => b.year - a.year);
 
