@@ -287,7 +287,7 @@ function App() {
                   </p>
                   <div className="flex flex-wrap gap-2 mb-8 relative z-10">
                       {[
-                        { text: 'Data Science', icon: <BarChart3 className="w-3.5 h-3.5 mr-1.5" /> },
+                        { text: 'Data Analytics', icon: <BarChart3 className="w-3.5 h-3.5 mr-1.5" /> },
                         { text: 'Machine Learning', icon: <Cpu className="w-3.5 h-3.5 mr-1.5" /> },
                         { text: 'Full-Stack', icon: <Code2 className="w-3.5 h-3.5 mr-1.5" /> },
                         { text: 'Blockchain', icon: <Link2 className="w-3.5 h-3.5 mr-1.5" /> }
