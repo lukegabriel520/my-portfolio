@@ -12,11 +12,11 @@ import {
   Link2,
   Cloud
 } from 'lucide-react';
-import AnimatedSection from './components/AnimatedSection';
-import ProjectCard from './components/ProjectCard';
-import AccoladeCard from './components/AccoladeCard';
-import AffiliationCard from './components/AffiliationCard';
-import TestimonialCarousel from './components/TestimonialCarousel';
+import AnimatedSection from './components/animatedsection';
+import ProjectCard from './components/projectcard';
+import AccoladeCard from './components/accoladecard';
+import AffiliationCard from './components/affiliationcard';
+import TestimonialCarousel from './components/testimonialcarousel';
 import { projects, accolades, affiliations, testimonials, personalInfo, ProjectCategory } from './data/portfolioData';
 
 function App() {
