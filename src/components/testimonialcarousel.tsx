@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
-import AnimatedSection from './AnimatedSection';
+import AnimatedSection from './animatedsection';
 
 interface Testimonial {
   name: string;

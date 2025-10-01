@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Github, ExternalLink } from 'lucide-react';
-import AnimatedSection from './AnimatedSection';
+import AnimatedSection from './animatedsection';
 
 interface ProjectCardProps {
   project: {

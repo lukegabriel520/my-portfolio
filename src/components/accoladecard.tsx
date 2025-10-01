@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { ChevronLeft, ChevronRight, ExternalLink } from 'lucide-react';
-import AnimatedSection from './AnimatedSection';
+import AnimatedSection from './animatedsection';
 
 const getLogoPath = (organization: string): string => {
   const logoMap: Record<string, string> = {
