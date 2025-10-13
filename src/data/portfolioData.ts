@@ -223,12 +223,12 @@ export const affiliations: Affiliation[] = [
     {
       name: "Junior Blockchain Education Consortium of the Philippines",
       role: "Chief Technology Officer",
-      description: "Overseeing club activities in blockchain education.",
+      description: "Overseeing tech-related, club activities in blockchain education.",
       logo: "/affiliations/JBECP.png"
     },
     {
       name: "The BLOKC",
-      role: "Intern",
+      role: "Former Intern",
       description: "Trained in Web3 development with focus on Base and Solidity smart contracts.",
       logo: "/affiliations/BLOKC.png"
     },
@@ -247,7 +247,7 @@ export const affiliations: Affiliation[] = [
     {
       name: "Microsoft Student Community",
       role: "Member",
-      description: "Engaged in learning sessions on Azure, and Microsoft tools.",
+      description: "Engaged in learning sessions on Azure, and Microsoft Kits.",
       logo: "/affiliations/MSC.png"
     },
     {
