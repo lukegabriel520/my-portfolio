@@ -283,7 +283,7 @@ function App() {
                     {personalInfo.name}
                   </h1>
                   <p className="text-2xl text-gray-700 mb-6 relative z-10 drop-shadow-sm">
-                    Undergrad @ PLM | Associate Data Analyst
+                    Sophomore Undergraduate @ PLM | Associate Data Analyst
                   </p>
                   <div className="flex flex-wrap gap-2 mb-8 relative z-10">
                       {[
