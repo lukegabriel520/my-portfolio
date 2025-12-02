@@ -300,12 +300,14 @@ export const testimonials: Testimonial[] = [
 export const personalInfo = {
   name: "Luke Lumakin",
   role: "Associate Data Analyst",
-  slogan: "I like building things through Mechatronics, and AI/ML, eventually to extend human capabilities. Innovate, lest, reproducible brilliance.",
+  slogan: "I like building things through Robotics, and AI/ML, eventually to extend human capabilities. Innovate, lest, reproducible brilliance.",
   languages: ["Filipino", "English"],
-  status: "Blockchain Intern @ Blocklabs Academy",
+  status: "Former Blockchain Intern @ Blocklabs Academy",
   school: "Pamantasan ng Lungsod ng Maynila (PLM)",
   email: "lukegabriel520@gmail.com",
   github: "https://github.com/lukegabriel520",
   linkedin: "https://linkedin.com/in/lukelumakin",
   resume: "https://lukelumakin.tiiny.site"
 };
+
+
