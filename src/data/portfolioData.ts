@@ -69,7 +69,7 @@ export const projects: Project[] = [
     description: "A digital verification service that proves whether documents are real or fake. The platform works by having official organizations upload authentic documents, which CertiFi then converts into unique digital signatures and stores permanently on blockchain technology. When someone needs to verify a document later, they submit it to CertiFi, which creates a new digital signature and compares it to the original stored version. If the signatures match perfectly, the document is genuine; if they don't match, it's been altered or forged.",
     technologies: ["Motoko", "ReactJS", "ICP", "Linux", "TailwindCSS"],
     githubUrl: "https://github.com/lukegabriel520/CertiFi",
-    demoUrl: "https://github.com/lukegabriel520/CertiFi",
+    demoUrl: "https://certi-fi.vercel.app/",
     image: "/projects/CertiFi.png",
     year: 2024,
     category: 'Software Engineering' as const
