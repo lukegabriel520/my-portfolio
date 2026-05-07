@@ -100,8 +100,8 @@ export const accolades: Accolade[] = [
   {
     title: "Certified in Cybersecurity (CC)",
     organization: "ISC2",
-    date: "2026-04-15",
-    link: "",
+    date: "2026-02-27",
+    link: "https://example.com",
     logo: "/logos/isc2.png"
   },
   {
