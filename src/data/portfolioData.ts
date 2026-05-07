@@ -98,6 +98,13 @@ export const projects: Project[] = [
 
 export const accolades: Accolade[] = [
   {
+    title: "Engineer AI Agents with Agent Development Kit (ADK)",
+    organization: "Google",
+    date: "2026-05-08",
+    link: "https://www.credly.com/badges/c09de26b-685d-41da-afdd-928572c2967c/public_url",
+    logo: "/logos/google.png"
+  },
+  {
     title: "Certified in Cybersecurity (CC)",
     organization: "ISC2",
     date: "2026-02-27",
