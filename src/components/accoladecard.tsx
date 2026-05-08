@@ -30,9 +30,15 @@ const getLogoPath = (organization: string): string => {
   return `/logos/${logoName}`;
 };
 
+const PLACEHOLDER_AWARD_LINK = 'https://example.com';
+
 const hasCredentialLink = (link: string | undefined): boolean => {
   const t = (link ?? '').trim().toLowerCase();
   return t !== '' && t !== 'leave it blank';
+};
+
+const getAccoladeLink = (link: string | undefined): string => {
+  return hasCredentialLink(link) ? link! : PLACEHOLDER_AWARD_LINK;
 };
 
 interface Accolade {
@@ -100,17 +106,18 @@ const AccoladeCard: React.FC<AccoladeCardProps> = ({ accolades }) => {
             const accolade = accolades[currentPage * itemsPerPage + index];
             if (!accolade) return null;
 
-            const linkActive = hasCredentialLink(accolade.link);
+            const accoladeLink = getAccoladeLink(accolade.link);
             const cardInner = (
               <div className="h-full bg-white/95 rounded-xl border border-gray-200 p-4 hover:shadow-lg transition-all duration-200 flex flex-col group-hover:border-gray-300 relative">
-                {linkActive && (
-                  <span
-                    className="absolute top-3 right-3 p-1.5 text-gray-400 pointer-events-none"
-                    aria-hidden
-                  >
-                    <ExternalLink className="w-4 h-4" />
-                  </span>
-                )}
+                <a
+                  href={accoladeLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="absolute top-3 right-3 p-1.5 text-gray-500 hover:text-gray-800 transition-colors rounded-md hover:bg-gray-100"
+                  aria-label={`Open details for ${accolade.title}`}
+                >
+                  <ExternalLink className="w-4 h-4" />
+                </a>
                 <div className="flex items-start space-x-3 pr-5">
                   {renderOrganizationLogo(accolade)}
                   <div className="flex-1 min-w-0">
@@ -126,20 +133,15 @@ const AccoladeCard: React.FC<AccoladeCardProps> = ({ accolades }) => {
                         {formatDate(accolade.date)}
                       </span>
                       <div className="ml-auto">
-                        <div
-                          className={`inline-flex items-center justify-center px-3 h-7 rounded-full text-xs font-medium border transition-all duration-200 shadow-sm ${
-                            linkActive
-                              ? 'bg-white/80 text-gray-700 border-white/80 group-hover:bg-white group-hover:border-white hover:shadow-md hover:-translate-y-0.5'
-                              : 'bg-gray-50 text-gray-500 border-gray-100'
-                          }`}
+                        <a
+                          href={accoladeLink}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center justify-center px-3 h-7 rounded-full text-xs font-medium border transition-all duration-200 shadow-sm bg-white/80 text-gray-700 border-white/80 group-hover:bg-white group-hover:border-white hover:shadow-md hover:-translate-y-0.5"
                         >
-                          <span className="leading-none">
-                            {linkActive ? 'View Details' : 'Link coming soon'}
-                          </span>
-                          {linkActive && (
-                            <ChevronRight className="w-3 h-3 ml-1.5 -mr-0.5 opacity-80" />
-                          )}
-                        </div>
+                          <span className="leading-none">View Details</span>
+                          <ChevronRight className="w-3 h-3 ml-1.5 -mr-0.5 opacity-80" />
+                        </a>
                       </div>
                     </div>
                   </div>
@@ -147,17 +149,7 @@ const AccoladeCard: React.FC<AccoladeCardProps> = ({ accolades }) => {
               </div>
             );
 
-            return linkActive ? (
-              <a
-                key={index}
-                href={accolade.link}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group block"
-              >
-                {cardInner}
-              </a>
-            ) : (
+            return (
               <div key={index} className="group block">
                 {cardInner}
               </div>

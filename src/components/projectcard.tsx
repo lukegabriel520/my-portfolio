@@ -18,6 +18,7 @@ interface ProjectCardProps {
 
 const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
   const [isExpanded, setIsExpanded] = useState(false);
+  const isResearchProject = project.category === 'Research';
   
   const toggleExpand = (e: React.MouseEvent) => {
     e.stopPropagation();
@@ -67,17 +68,19 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
         </div>
         
         <div className="flex items-center justify-between mt-auto pt-4 border-t border-gray-100">
-          <a
-            href={project.githubUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center space-x-2 text-gray-600 hover:text-gray-900 transition-colors text-sm font-medium group/code"
-          >
-            <Github className="w-4 h-4 group-hover/code:scale-110 transition-transform" />
-            <span className="relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[1px] after:bg-gray-900 after:transition-all after:duration-300 group-hover/code:after:w-full">
-              Code
-            </span>
-          </a>
+          {!isResearchProject && project.githubUrl && (
+            <a
+              href={project.githubUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center space-x-2 text-gray-600 hover:text-gray-900 transition-colors text-sm font-medium group/code"
+            >
+              <Github className="w-4 h-4 group-hover/code:scale-110 transition-transform" />
+              <span className="relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[1px] after:bg-gray-900 after:transition-all after:duration-300 group-hover/code:after:w-full">
+                Code
+              </span>
+            </a>
+          )}
           <a
             href={project.demoUrl}
             target="_blank"
@@ -85,7 +88,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
             className="flex items-center space-x-2 text-gray-600 hover:text-gray-900 transition-colors text-sm font-medium group/demo"
           >
             <span className="relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[1px] after:bg-gray-900 after:transition-all after:duration-300 group-hover/demo:after:w-full">
-              View Demo
+              {isResearchProject ? 'View Paper' : 'View Demo'}
             </span>
             <ExternalLink className="w-4 h-4 group-hover/demo:translate-x-0.5 transition-transform" />
           </a>

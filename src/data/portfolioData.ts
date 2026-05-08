@@ -35,6 +35,16 @@ export interface Testimonial {
 
 export const projects: Project[] = [
   {
+    title: "Preventive Advocacies against White Spot Syndrome (PAWSS) in Caridean Shrimps: A Random Effect Meta-Analysis Model",
+    description: "PAWSS is an applied mathematics research project I developed with my peers during my senior year in high school for UP, DLSU, and SEAMO research competitions. The study analyzes the spread of White Spot Syndrome Virus in crustaceans and uses a random-effects meta-analysis model to identify which preventive strategies are most effective in reducing transmission risk.",
+    technologies: ["Applied Mathematics", "Meta-Analysis", "Biostatistics", "Research"],
+    githubUrl: "",
+    demoUrl: "https://docs.google.com/document/d/1Jjm5f5l_OGwW5Ofjr-w6xB_Jm1e5RPD9/edit?usp=sharing&ouid=115264030541214944843&rtpof=true&sd=true",
+    image: "/projects/PAWSS.png",
+    year: 2024,
+    category: "Research" as const
+  },
+  {
     title: "Sheltr",
     description:
       "Metro Manila evacuation support: hazard-aware routing with Valhalla, flood and storm-surge overlays, scenario modes (auto through super typhoon), deterministic safety scoring, evacuation center discovery, weather snapshots, and an SOS flow. Built as an Expo app with a Flask API and Supabase/PostGIS.",
