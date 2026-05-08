@@ -36,7 +36,7 @@ export interface Testimonial {
 export const projects: Project[] = [
   {
     title: "Preventive Advocacies against White Spot Syndrome (PAWSS) in Caridean Shrimps: A Random Effect Meta-Analysis Model",
-    description: "PAWSS was my friends and I's, applied mathematics research entry for UP, DLSU, SEAMO Symposiums/Competition during my Senior Year in High School. The study analyzes the spread of White Spot Syndrome Virus in crustaceans and uses a random-effects meta-analysis model to identify which preventive strategies are most effective in reducing transmission risk.",
+    description: "PAWSS was my friends and I's applied mathematics research entry for UP, DLSU, SEAMO Symposiums/Competition during my Senior Year in High School. The study analyzes the spread of White Spot Syndrome Virus in crustaceans and uses a random-effects meta-analysis model to identify which preventive strategies are most effective in reducing transmission risk.",
     technologies: ["Applied Mathematics", "Meta-Analysis"],
     githubUrl: "",
     demoUrl: "https://docs.google.com/document/d/1Jjm5f5l_OGwW5Ofjr-w6xB_Jm1e5RPD9/edit?usp=sharing&ouid=115264030541214944843&rtpof=true&sd=true",
