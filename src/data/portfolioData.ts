@@ -38,7 +38,7 @@ export const projects: Project[] = [
     title: "AGAP (Autonomous Guardrail & Agentic Platform)",
     description:
       "Ongoing. High-speed ingest pipeline for real-time disaster response: unstructured public emergency reports are schema-validated, screened by a Guardrail layer that blocks malicious or fake inputs, then routed through spatial and RAG steps for decision support.",
-    technologies: ["Python", "FastAPI", "Protobuf", "Pydantic", "Gemini"],
+    technologies: ["Python", "FastAPI", "Protobuf", "Pydantic", "Cloud Run", "Cloud Build"],
     githubUrl: "https://github.com/lukegabriel520/AGAP",
     demoUrl: "https://github.com/lukegabriel520/AGAP",
     image: "/projects/AGAP.png",
@@ -300,8 +300,8 @@ export const accolades: Accolade[] = [
 export const affiliations: Affiliation[] = [
     {
       name: "Junior Blockchain Education Consortium of the Philippines",
-      role: "Chief Operations Officer",
-      description: "Runs day-to-day club operations: event logistics, member coordination, and program delivery for blockchain education initiatives.",
+      role: "Member",
+      description: "Participates in blockchain education programs, workshops, and community events.",
       logo: "/affiliations/JBECP.png"
     },
     {
@@ -378,7 +378,7 @@ export const testimonials: Testimonial[] = [
 export const personalInfo = {
   name: "Luke Lumakin",
   role: "Backend AI Engineer Intern",
-  slogan: "I build data pipelines and backend systems across robotics and AI/ML—clean inputs, reliable schemas, reproducible outputs.",
+  slogan: "Hi. I am Luke. I learn to build stuff.",
   languages: ["Filipino", "English"],
   status: "Backend AI Engineer Intern @ FlyRank",
   school: "Pamantasan ng Lungsod ng Maynila (PLM)",
