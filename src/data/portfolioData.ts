@@ -35,6 +35,39 @@ export interface Testimonial {
 
 export const projects: Project[] = [
   {
+    title: "AGAP (Autonomous Guardrail & Agentic Platform)",
+    description:
+      "Ongoing. High-speed ingest pipeline for real-time disaster response: unstructured public emergency reports are schema-validated, screened by a Guardrail layer that blocks malicious or fake inputs, then routed through spatial and RAG steps for decision support.",
+    technologies: ["Python", "FastAPI", "Protobuf", "Pydantic", "Gemini"],
+    githubUrl: "https://github.com/lukegabriel520/AGAP",
+    demoUrl: "https://github.com/lukegabriel520/AGAP",
+    image: "/projects/AGAP.png",
+    year: 2026,
+    category: "Software Engineering" as const
+  },
+  {
+    title: "HEPA (Hepatorenal Echogenicity and Predictive Analysis) in Routine Clinical Data",
+    description:
+      "Ongoing research. Builds a clinical data pipeline around hepatorenal ultrasound features—extracting echogenicity signals from routine scans and applying predictive models for downstream risk assessment.",
+    technologies: ["Clinical Data", "Predictive Modeling", "Ultrasound Imaging"],
+    githubUrl: "https://github.com/lukegabriel520/HEPA",
+    demoUrl: "https://github.com/lukegabriel520/HEPA",
+    image: "/projects/HEPA.png",
+    year: 2026,
+    category: "Research" as const
+  },
+  {
+    title: "RunePairs",
+    description:
+      "Skyrim-themed Android memory game: flip cards to match city icons before the timer runs out, with local auth, difficulty tiers, scoring, catalog, and leaderboards.",
+    technologies: ["Android", "Kotlin"],
+    githubUrl: "https://github.com/lukegabriel520/RunePairs",
+    demoUrl: "https://drive.google.com/drive/u/0/folders/12wCwfIGvIUTRWHWvyOk94xbQOhN8HPbe",
+    image: "/projects/RunePairs.png",
+    year: 2026,
+    category: "Software Engineering" as const
+  },
+  {
     title: "Preventive Advocacies against White Spot Syndrome (PAWSS) in Caridean Shrimps: A Random Effect Meta-Analysis Model",
     description: "PAWSS was my friends and I's applied mathematics research entry for UP, DLSU, SEAMO Symposiums/Competition during my Senior Year in High School. The study analyzes the spread of White Spot Syndrome Virus in crustaceans and uses a random-effects meta-analysis model to identify which preventive strategies are most effective in reducing transmission risk.",
     technologies: ["Applied Mathematics", "Meta-Analysis"],
@@ -47,7 +80,7 @@ export const projects: Project[] = [
   {
     title: "Sheltr",
     description:
-      "Metro Manila evacuation support: hazard-aware routing with Valhalla, flood and storm-surge overlays, scenario modes (auto through super typhoon), deterministic safety scoring, evacuation center discovery, weather snapshots, and an SOS flow. Built as an Expo app with a Flask API and Supabase/PostGIS.",
+      "Metro Manila evacuation support: hazard-aware routing with Valhalla, flood and storm-surge overlays on geospatial layers, scenario modes (auto through super typhoon), deterministic safety scoring, evacuation center discovery, weather snapshots, and an SOS flow. Expo client with a Flask API and Supabase/PostGIS.",
     technologies: [
       "React Native",
       "Expo",
@@ -76,7 +109,7 @@ export const projects: Project[] = [
   },
   {
     title: "CertiFi",
-    description: "A digital verification service that proves whether documents are real or fake. The platform works by having official organizations upload authentic documents, which CertiFi then converts into unique digital signatures and stores permanently on blockchain technology. When someone needs to verify a document later, they submit it to CertiFi, which creates a new digital signature and compares it to the original stored version. If the signatures match perfectly, the document is genuine; if they don't match, it's been altered or forged.",
+    description: "Document authenticity service: issuers upload source documents, CertiFi hashes them into on-chain signatures, and later submissions are re-hashed and compared against the stored record to detect tampering or forgery.",
     technologies: ["Motoko", "ReactJS", "ICP", "Linux", "TailwindCSS"],
     githubUrl: "https://github.com/lukegabriel520/CertiFi",
     demoUrl: "https://certi-fi.vercel.app/",
@@ -96,7 +129,7 @@ export const projects: Project[] = [
   },
   {
     title: "Banking System",
-    description: "A demonstration system that lets customers do all their banking safely and quickly. Built with languages like C, C++, and Java, the system allows users to check their account balance, withdraw and deposit money, transfer funds to other accounts, and pay bills automatically. Customers can create different types of accounts like savings or checking, view their transaction history to see where their money went, and apply for loans directly through the platform.",
+    description: "Console banking demo in C, C++, and Java: account CRUD, deposits, withdrawals, transfers, bill pay, and transaction history across savings and checking accounts.",
     technologies: ["C", "C++", "Java"],
     githubUrl: "https://github.com/lukegabriel520/C-ICC-BankingSystem",
     demoUrl: "https://github.com/lukegabriel520/C-ICC-BankingSystem",
@@ -267,8 +300,8 @@ export const accolades: Accolade[] = [
 export const affiliations: Affiliation[] = [
     {
       name: "Junior Blockchain Education Consortium of the Philippines",
-      role: "Chief Technology Officer",
-      description: "Overseeing tech-related, club activities in blockchain education.",
+      role: "Chief Operations Officer",
+      description: "Runs day-to-day club operations: event logistics, member coordination, and program delivery for blockchain education initiatives.",
       logo: "/affiliations/JBECP.png"
     },
     {
@@ -344,10 +377,10 @@ export const testimonials: Testimonial[] = [
 
 export const personalInfo = {
   name: "Luke Lumakin",
-  role: "Associate Data Analyst",
-  slogan: "I like building things through Robotics, and AI/ML, eventually to extend human capabilities. Innovate, lest, reproducible brilliance.",
+  role: "Backend AI Engineer Intern",
+  slogan: "I build data pipelines and backend systems across robotics and AI/ML—clean inputs, reliable schemas, reproducible outputs.",
   languages: ["Filipino", "English"],
-  status: "Former Blockchain Intern @ Blocklabs Academy",
+  status: "Backend AI Engineer Intern @ FlyRank",
   school: "Pamantasan ng Lungsod ng Maynila (PLM)",
   email: "lukegabriel520@gmail.com",
   github: "https://github.com/lukegabriel520",

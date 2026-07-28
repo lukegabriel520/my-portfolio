@@ -281,11 +281,11 @@ function App() {
                     {personalInfo.name}
                   </h1>
                   <p className="text-2xl text-gray-700 mb-6 relative z-10 drop-shadow-sm">
-                    Associate Data Analyst
+                    {personalInfo.role}
                   </p>
                   <div className="flex flex-wrap gap-2 mb-8 relative z-10">
                       {[
-                        { text: 'Data Analytics', icon: <BarChart3 className="w-3.5 h-3.5 mr-1.5" /> },
+                        { text: 'Data Engineering', icon: <BarChart3 className="w-3.5 h-3.5 mr-1.5" /> },
                         { text: 'Machine Learning', icon: <Cpu className="w-3.5 h-3.5 mr-1.5" /> },
                         { text: 'Full-Stack', icon: <Code2 className="w-3.5 h-3.5 mr-1.5" /> },
                         { text: 'Blockchain', icon: <Link2 className="w-3.5 h-3.5 mr-1.5" /> }
