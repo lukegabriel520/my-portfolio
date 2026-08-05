@@ -82,14 +82,10 @@ export const projects: Project[] = [
     description:
       "Metro Manila evacuation support: hazard-aware routing with Valhalla, flood and storm-surge overlays on geospatial layers, scenario modes (auto through super typhoon), deterministic safety scoring, evacuation center discovery, weather snapshots, and an SOS flow. Expo client with a Flask API and Supabase/PostGIS.",
     technologies: [
-      "React Native",
-      "Expo",
+      "Expo Go",
       "Flask",
-      "Python",
-      "Supabase",
       "PostGIS",
-      "Valhalla",
-      "GeoJSON"
+      "Valhalla"
     ],
     githubUrl: "https://github.com/lukegabriel520/Sheltr_DevKada",
     demoUrl: "https://sheltrweb.vercel.app/",
@@ -367,7 +363,7 @@ export const personalInfo = {
   email: "lukegabriel520@gmail.com",
   github: "https://github.com/lukegabriel520",
   linkedin: "https://linkedin.com/in/lukelumakin",
-  resume: "https://lukelumakin.tiiny.site"
+  resume: "https://lumakin-resume.tiiny.site"
 };
 
 
