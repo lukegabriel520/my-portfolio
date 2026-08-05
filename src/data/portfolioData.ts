@@ -299,16 +299,22 @@ export const accolades: Accolade[] = [
 
 export const affiliations: Affiliation[] = [
     {
-      name: "Junior Blockchain Education Consortium of the Philippines",
-      role: "Member",
-      description: "Participates in blockchain education programs, workshops, and community events.",
-      logo: "/affiliations/JBECP.png"
+      name: "AWS Cloud Club",
+      role: "Data Engineer Lead",
+      description: "Handles DE-related projects for the club",
+      logo: "/affiliations/AWS.png"
     },
     {
       name: "The BLOKC",
       role: "Former Intern",
       description: "Trained in Web3 development with focus on Base and Solidity smart contracts.",
       logo: "/affiliations/BLOKC.png"
+    },
+    {
+      name: "Junior Blockchain Education Consortium of the Philippines",
+      role: "Chief Technology Officer",
+      description: "Oversees Technology and Development for the org, mostly Web3 and Blockchain",
+      logo: "/affiliations/JBECP.png"
     },
     {
       name: "DevCon Philippines",
@@ -327,28 +333,10 @@ export const affiliations: Affiliation[] = [
       role: "Member",
       description: "Engaged in learning sessions on Azure, and Microsoft Kits.",
       logo: "/affiliations/MSC.png"
-    },
-    {
-      name: "AWS Cloud Club",
-      role: "Member",
-      description: "Attended seminars and hands-on labs on AWS cloud services and architecture.",
-      logo: "/affiliations/AWS.png"
     }
   ];
 
 export const testimonials: Testimonial[] = [
-    {
-      name: "James Larios",
-      role: "Junior Java Developer",
-      content: "When I got stuck debugging Java code, he stepped in and explained each error clearly. His guidance helped me spot mistakes I didn't even know I was making.",
-      avatar: "/people/JamesLarios.png"
-    },
-    {
-      name: "Neil Balantac",
-      role: "MongoDB Developer",
-      content: "Luke is an exceptional mentor who goes above and beyond to ensure his friends truly understand the material. His ability to break down complex concepts into manageable pieces made learning Python enjoyable and effective.",
-      avatar: "/people/NeilBalantac.png"
-    },
     {
       name: "James Matienzo",
       role: "AI/ML Lead @ TUP GDSC",
@@ -357,15 +345,9 @@ export const testimonials: Testimonial[] = [
     },
     {
       name: "Julius Miranda",
-      role: "UP Data Scientist",
+      role: "UP Compstat",
       content: "He has a knack for breaking down complex data concepts into easy-to-understand lessons. His patience and clear explanations made learning data analysis enjoyable.",
       avatar: "/people/JuliusMiranda.png"
-    },
-    {
-      name: "Jimnoeri Enriquez",
-      role: "UI/UX Designer",
-      content: "It was a pleasure working with Luke. What stood out was how patient he was even when I needed things repeated especially in our hackathons.",
-      avatar: "/people/JimnoeriEnriquez.png"
     },
     {
       name: "Charles Chua",
