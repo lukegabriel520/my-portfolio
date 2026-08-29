@@ -356,7 +356,7 @@ export const testimonials: Testimonial[] = [
 export const personalInfo = {
   name: "Luke Lumakin",
   role: "Backend AI Engineer Intern",
-  slogan: "Hi! I'm Luke, a CS Junior at PLM that branches more often times than not into Data Science and Data Engineering. Most of my projects are centered around on an adhoc system or whatever I convince myself to work on at the time. Feel free to reach me out on Linkedin right below my profile picture!!!",
+  slogan: "Hi! I'm Luke, a CS Junior at PLM that branches more often times than not into Data Science and Data Engineering. I like all things data; most of my projects are centered around on whatever I convince myself to work on at the time xd. Feel free to reach me out on Linkedin right below my profile picture!",
   languages: ["Filipino", "English"],
   status: "Backend AI Engineer Intern @ FlyRank",
   school: "Pamantasan ng Lungsod ng Maynila (PLM)",
